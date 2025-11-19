@@ -1,4 +1,6 @@
-// app/page.tsx
+"use client";
+
+import React, { type CSSProperties } from "react";
 
 export default function ArbiAIDashboard() {
   return (
@@ -80,22 +82,10 @@ export default function ArbiAIDashboard() {
             </p>
 
             <div style={inputGrid}>
-              <input
-                placeholder="Amazon URL"
-                style={inputStyle}
-              />
-              <input
-                placeholder="Supplier URL"
-                style={inputStyle}
-              />
-              <input
-                placeholder="Your Cost ($)"
-                style={inputStyle}
-              />
-              <input
-                placeholder="Pack Size"
-                style={inputStyle}
-              />
+              <input placeholder="Amazon URL" style={inputStyle} />
+              <input placeholder="Supplier URL" style={inputStyle} />
+              <input placeholder="Your Cost ($)" style={inputStyle} />
+              <input placeholder="Pack Size" style={inputStyle} />
             </div>
 
             <button style={analyzeButton}>Run AI Analysis</button>
@@ -150,7 +140,13 @@ export default function ArbiAIDashboard() {
 
 /* ---------- Small components ---------- */
 
-function NavItem({ label, active = false }: { label: string; active?: boolean }) {
+function NavItem({
+  label,
+  active = false,
+}: {
+  label: string;
+  active?: boolean;
+}) {
   return (
     <div
       style={{
@@ -207,9 +203,9 @@ function QueueItem({ label, eta }: { label: string; eta: string }) {
   );
 }
 
-/* ---------- Styles ---------- */
+/* ---------- Styles (typed as CSSProperties) ---------- */
 
-const pageShell = {
+const pageShell: CSSProperties = {
   minHeight: "100vh",
   display: "flex",
   background: "#050509",
@@ -217,7 +213,7 @@ const pageShell = {
   fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
 };
 
-const sidebar = {
+const sidebar: CSSProperties = {
   width: 240,
   borderRight: "1px solid #1b1b25",
   padding: 18,
@@ -226,13 +222,13 @@ const sidebar = {
   justifyContent: "space-between",
 };
 
-const sidebarHeader = {
+const sidebarHeader: CSSProperties = {
   display: "flex",
   alignItems: "center",
   gap: 10,
 };
 
-const logoDot = {
+const logoDot: CSSProperties = {
   width: 26,
   height: 26,
   borderRadius: 999,
@@ -241,21 +237,21 @@ const logoDot = {
   boxShadow: "0 0 16px #3BFF8F66",
 };
 
-const logoText = {
+const logoText: CSSProperties = {
   fontSize: 18,
   fontWeight: 700,
 };
 
-const logoSub = {
+const logoSub: CSSProperties = {
   fontSize: 11,
   color: "#888",
 };
 
-const navSection = {
+const navSection: CSSProperties = {
   marginTop: 24,
 };
 
-const sidebarFooter = {
+const sidebarFooter: CSSProperties = {
   marginTop: 24,
   padding: 12,
   borderRadius: 10,
@@ -263,7 +259,7 @@ const sidebarFooter = {
   border: "1px solid #1b1b25",
 };
 
-const main = {
+const main: CSSProperties = {
   flex: 1,
   padding: 24,
   display: "flex",
@@ -271,25 +267,25 @@ const main = {
   gap: 20,
 };
 
-const topBar = {
+const topBar: CSSProperties = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   marginBottom: 4,
 };
 
-const topTitle = {
+const topTitle: CSSProperties = {
   fontSize: 22,
   fontWeight: 600,
 };
 
-const topSub = {
+const topSub: CSSProperties = {
   fontSize: 13,
   color: "#aaa",
   marginTop: 4,
 };
 
-const primaryButton = {
+const primaryButton: CSSProperties = {
   padding: "10px 16px",
   borderRadius: 999,
   border: "none",
@@ -299,20 +295,20 @@ const primaryButton = {
   cursor: "pointer",
 };
 
-const statsRow = {
+const statsRow: CSSProperties = {
   display: "grid",
   gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
   gap: 16,
 };
 
-const statCard = {
+const statCard: CSSProperties = {
   background: "#0c0d14",
   borderRadius: 14,
   padding: 14,
   border: "1px solid #1b1b25",
 };
 
-const statChip = {
+const statChip: CSSProperties = {
   marginTop: 8,
   fontSize: 11,
   color: "#3BFF8F",
@@ -322,40 +318,40 @@ const statChip = {
   display: "inline-block",
 };
 
-const mainGrid = {
+const mainGrid: CSSProperties = {
   display: "grid",
   gridTemplateColumns: "minmax(0, 1.6fr) minmax(0, 1.1fr)",
   gap: 18,
   marginTop: 8,
 };
 
-const panel = {
+const panel: CSSProperties = {
   background: "#0c0d14",
   borderRadius: 16,
   padding: 18,
   border: "1px solid #1b1b25",
 };
 
-const panelTitle = {
+const panelTitle: CSSProperties = {
   fontSize: 16,
   fontWeight: 600,
 };
 
-const panelSub = {
+const panelSub: CSSProperties = {
   fontSize: 13,
   color: "#aaa",
   marginTop: 4,
   marginBottom: 16,
 };
 
-const inputGrid = {
+const inputGrid: CSSProperties = {
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
   gap: 10,
   marginBottom: 12,
 };
 
-const inputStyle = {
+const inputStyle: CSSProperties = {
   width: "100%",
   padding: 10,
   borderRadius: 10,
@@ -365,7 +361,7 @@ const inputStyle = {
   fontSize: 13,
 };
 
-const analyzeButton = {
+const analyzeButton: CSSProperties = {
   width: "100%",
   padding: 12,
   marginTop: 4,
@@ -377,7 +373,7 @@ const analyzeButton = {
   cursor: "pointer",
 };
 
-const resultBox = {
+const resultBox: CSSProperties = {
   marginTop: 16,
   padding: 14,
   borderRadius: 12,
@@ -385,7 +381,7 @@ const resultBox = {
   border: "1px solid #253143",
 };
 
-const insightsList = {
+const insightsList: CSSProperties = {
   listStyle: "none",
   padding: 0,
   margin: "12px 0 0 0",
@@ -394,14 +390,14 @@ const insightsList = {
   gap: 10,
 };
 
-const insightItem = {
+const insightItem: CSSProperties = {
   padding: 10,
   borderRadius: 10,
   background: "#10111c",
   border: "1px solid #1d1e2a",
 };
 
-const queueList = {
+const queueList: CSSProperties = {
   listStyle: "none",
   padding: 0,
   marginTop: 10,
@@ -410,7 +406,7 @@ const queueList = {
   gap: 8,
 };
 
-const queueItem = {
+const queueItem: CSSProperties = {
   fontSize: 13,
   padding: 8,
   borderRadius: 8,
