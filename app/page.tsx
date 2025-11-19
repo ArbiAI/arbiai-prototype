@@ -3,6 +3,7 @@
 import React, { type CSSProperties } from "react";
 
 export default function ArbiAIDashboard() {
+  // later we can wire real logic here
   return (
     <div style={pageShell}>
       {/* Sidebar */}
@@ -74,35 +75,189 @@ export default function ArbiAIDashboard() {
 
         {/* Main grid */}
         <section style={mainGrid}>
-          {/* Left: Product Validator */}
-          <section style={panel}>
-            <h2 style={panelTitle}>AI Product Validator</h2>
-            <p style={panelSub}>
-              Paste your Amazon + supplier data and let ArbiAI run the numbers.
-            </p>
+          {/* Left: Product Analyzer */}
+<section style={panel}>
+  {/* Header row */}
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 8,
+    }}
+  >
+    <div>
+      <h2 style={panelTitle}>AI Product Analyzer</h2>
+      <p style={panelSub}>
+        Drop an ASIN and ArbiAI will crunch profit, ROI and risk for you.
+      </p>
+    </div>
+    <span
+      style={{
+        fontSize: 11,
+        padding: "6px 10px",
+        borderRadius: 999,
+        border: "1px solid #262739",
+        background: "#10111c",
+        color: "#aaa",
+      }}
+    >
+      🔧 Uses your calculator settings
+    </span>
+  </div>
 
-            <div style={inputGrid}>
-              <input placeholder="Amazon URL" style={inputStyle} />
-              <input placeholder="Supplier URL" style={inputStyle} />
-              <input placeholder="Your Cost ($)" style={inputStyle} />
-              <input placeholder="Pack Size" style={inputStyle} />
-            </div>
+  {/* Core inputs */}
+  <div style={{ marginBottom: 10 }}>
+    <input
+      placeholder="ASIN (e.g. B0CXXXXX)"
+      style={{
+        ...inputStyle,
+        width: "100%",
+      }}
+    />
+  </div>
 
-            <button style={analyzeButton}>Run AI Analysis</button>
+  <div style={inputGrid}>
+    <input
+      placeholder="Your buy cost ($)"
+      style={inputStyle}
+    />
+    <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+      <input
+        placeholder="Sale price (Buy Box $)"
+        style={inputStyle}
+      />
+      <span style={{ fontSize: 11, color: "#777" }}>
+        Default is live Buy Box – tweak if you plan to undercut or go higher.
+      </span>
+    </div>
+  </div>
 
-            <div style={resultBox}>
-              <p style={{ color: "#3BFF8F", fontSize: 18, fontWeight: 600 }}>
-                AI Result: BUY (89/100)
-              </p>
-              <p style={{ color: "#ccc" }}>
-                ROI: 38% • Profit: $7.82 • Monthly Sales: 120
-              </p>
-              <p style={{ color: "#777", marginTop: 6 }}>
-                Variation Risk: Low • Brand Risk: Very Low • Hazmat: No
-              </p>
-            </div>
-          </section>
+  {/* Advanced links */}
+  <div
+    style={{
+      marginTop: 8,
+      marginBottom: 12,
+      fontSize: 12,
+      color: "#888",
+      display: "flex",
+      gap: 10,
+    }}
+  >
+    <span style={{ color: "#aaa" }}>Advanced (optional):</span>
+    <input
+      placeholder="Amazon product link"
+      style={{
+        ...inputStyle,
+        fontSize: 12,
+        padding: 8,
+        background: "#0e1020",
+      }}
+    />
+    <input
+      placeholder="Supplier product link"
+      style={{
+        ...inputStyle,
+        fontSize: 12,
+        padding: 8,
+        background: "#0e1020",
+      }}
+    />
+  </div>
 
+  <button style={analyzeButton}>Run AI Analysis</button>
+
+  {/* Result card */}
+  <div style={resultBox}>
+    <p style={{ color: "#3BFF8F", fontSize: 18, fontWeight: 600 }}>
+      AI Verdict: BUY (89/100)
+    </p>
+    <p style={{ color: "#ccc" }}>
+      ROI: 38% • Profit: $7.82 • Monthly Sales: 120
+    </p>
+    <p style={{ color: "#777", marginTop: 6 }}>
+      Variation Risk: Low • Brand Risk: Very Low • Hazmat: No
+    </p>
+  </div>
+
+  {/* Calculator settings preview */}
+  <div
+    style={{
+      marginTop: 14,
+      padding: 12,
+      borderRadius: 12,
+      background: "#10111c",
+      border: "1px solid #24263a",
+      display: "grid",
+      gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+      gap: 10,
+      fontSize: 12,
+    }}
+  >
+    {/* Amazon specific */}
+    <div>
+      <div style={{ fontSize: 11, color: "#888", marginBottom: 4 }}>
+        Amazon specific
+      </div>
+      <div style={settingsRow}>
+        <span>Inbound FBA shipping</span>
+        <input
+          placeholder="$0.60 / lb"
+          style={settingsInput}
+        />
+      </div>
+      <div style={settingsRow}>
+        <span>Storage time</span>
+        <input
+          placeholder="0 months"
+          style={settingsInput}
+        />
+      </div>
+      <div style={settingsRow}>
+        <span>Mode</span>
+        <span
+          style={{
+            padding: "3px 8px",
+            borderRadius: 999,
+            background: "#07140e",
+            color: "#3BFF8F",
+            fontSize: 11,
+          }}
+        >
+          FBA ✅
+        </span>
+      </div>
+    </div>
+
+    {/* Buying criteria / additional costs */}
+    <div>
+      <div style={{ fontSize: 11, color: "#888", marginBottom: 4 }}>
+        Buying criteria & costs
+      </div>
+      <div style={settingsRow}>
+        <span>Min ROI</span>
+        <input
+          placeholder="25 %"
+          style={settingsInput}
+        />
+      </div>
+      <div style={settingsRow}>
+        <span>Min profit</span>
+        <input
+          placeholder="$2.50"
+          style={settingsInput}
+        />
+      </div>
+      <div style={settingsRow}>
+        <span>Prep + misc</span>
+        <input
+          placeholder="$0.25"
+          style={settingsInput}
+        />
+      </div>
+    </div>
+  </div>
+</section>
           {/* Right: Insights & Queue */}
           <section style={panel}>
             <h2 style={panelTitle}>AI Insights</h2>
@@ -379,6 +534,24 @@ const resultBox: CSSProperties = {
   borderRadius: 12,
   background: "#111320",
   border: "1px solid #253143",
+};
+
+const settingsRow: CSSProperties = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  gap: 6,
+  marginBottom: 6,
+};
+
+const settingsInput: CSSProperties = {
+  borderRadius: 8,
+  border: "1px solid #262739",
+  background: "#131522",
+  color: "white",
+  fontSize: 11,
+  padding: "5px 7px",
+  width: 90,
 };
 
 const insightsList: CSSProperties = {
