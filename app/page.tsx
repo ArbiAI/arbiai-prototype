@@ -9,7 +9,7 @@ export default function ArbiAIDashboard() {
           <div style={logoDot} />
           <div>
             <div style={logoText}>ArbiAI</div>
-            <div style={logoSub}>AI OS for Arbitrage</div>
+            <div style={logoSub}>AI OS for Amazon Arbitrage</div>
           </div>
         </div>
 
@@ -18,13 +18,17 @@ export default function ArbiAIDashboard() {
           <NavItem label="Product Validator" />
           <NavItem label="Supplier Scanner" />
           <NavItem label="Replen Finder" />
+          <NavItem label="Risk & IP Watch" />
           <NavItem label="Settings" />
         </nav>
 
         <div style={sidebarFooter}>
-          <div style={{ fontSize: 12, color: "#777" }}>Today’s Time Saved</div>
+          <div style={{ fontSize: 12, color: "#777" }}>Today’s time saved</div>
           <div style={{ fontSize: 20, color: "#3BFF8F", fontWeight: 600 }}>
             3.4 hrs
+          </div>
+          <div style={{ fontSize: 11, color: "#999", marginTop: 4 }}>
+            Based on tasks ArbiAI automated for you.
           </div>
         </div>
       </aside>
@@ -59,11 +63,16 @@ export default function ArbiAIDashboard() {
             value="41 hrs"
             chip="13 manual tasks automated"
           />
+          <StatCard
+            label="Risk Alerts"
+            value="2 medium"
+            chip="IP & hazmat watch"
+          />
         </section>
 
         {/* Main grid */}
         <section style={mainGrid}>
-          {/* Left: Product Validator (your existing UI) */}
+          {/* Left: Product Validator */}
           <section style={panel}>
             <h2 style={panelTitle}>AI Product Validator</h2>
             <p style={panelSub}>
@@ -114,18 +123,15 @@ export default function ArbiAIDashboard() {
             <ul style={insightsList}>
               <InsightItem
                 title="Electrolyte powder margin spike"
-                body="Supplier discount ending in 3 days. Reorder window ideal now
-                for 23–30 units."
+                body="Supplier discount ending in 3 days. Reorder window ideal now for 23–30 units."
               />
               <InsightItem
-                title="Baby wipes demand cooling 8%"
-                body="Keep as replen but lower quantity to 15 units this cycle to
-                protect cashflow."
+                title="Baby wipes demand cooling ~8%"
+                body="Keep as replen but lower quantity to 15 units this cycle to protect cashflow."
               />
               <InsightItem
                 title="2 SKUs flirting with IP risk"
-                body="Brand enforcement activity rising. AI suggests switching to
-                lower-risk alternatives."
+                body="Brand enforcement activity rising. ArbiAI suggests switching to lower-risk alternatives."
               />
             </ul>
 
@@ -203,7 +209,7 @@ function QueueItem({ label, eta }: { label: string; eta: string }) {
 
 /* ---------- Styles ---------- */
 
-const pageShell: React.CSSProperties = {
+const pageShell = {
   minHeight: "100vh",
   display: "flex",
   background: "#050509",
@@ -211,7 +217,7 @@ const pageShell: React.CSSProperties = {
   fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
 };
 
-const sidebar: React.CSSProperties = {
+const sidebar = {
   width: 240,
   borderRight: "1px solid #1b1b25",
   padding: 18,
@@ -220,13 +226,13 @@ const sidebar: React.CSSProperties = {
   justifyContent: "space-between",
 };
 
-const sidebarHeader: React.CSSProperties = {
+const sidebarHeader = {
   display: "flex",
   alignItems: "center",
   gap: 10,
 };
 
-const logoDot: React.CSSProperties = {
+const logoDot = {
   width: 26,
   height: 26,
   borderRadius: 999,
@@ -235,28 +241,29 @@ const logoDot: React.CSSProperties = {
   boxShadow: "0 0 16px #3BFF8F66",
 };
 
-const logoText: React.CSSProperties = {
+const logoText = {
   fontSize: 18,
   fontWeight: 700,
 };
 
-const logoSub: React.CSSProperties = {
+const logoSub = {
   fontSize: 11,
   color: "#888",
 };
 
-const navSection: React.CSSProperties = {
+const navSection = {
   marginTop: 24,
 };
 
-const sidebarFooter: React.CSSProperties = {
+const sidebarFooter = {
+  marginTop: 24,
   padding: 12,
   borderRadius: 10,
   background: "#0f1017",
   border: "1px solid #1b1b25",
 };
 
-const main: React.CSSProperties = {
+const main = {
   flex: 1,
   padding: 24,
   display: "flex",
@@ -264,25 +271,25 @@ const main: React.CSSProperties = {
   gap: 20,
 };
 
-const topBar: React.CSSProperties = {
+const topBar = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   marginBottom: 4,
 };
 
-const topTitle: React.CSSProperties = {
+const topTitle = {
   fontSize: 22,
   fontWeight: 600,
 };
 
-const topSub: React.CSSProperties = {
+const topSub = {
   fontSize: 13,
   color: "#aaa",
   marginTop: 4,
 };
 
-const primaryButton: React.CSSProperties = {
+const primaryButton = {
   padding: "10px 16px",
   borderRadius: 999,
   border: "none",
@@ -292,20 +299,20 @@ const primaryButton: React.CSSProperties = {
   cursor: "pointer",
 };
 
-const statsRow: React.CSSProperties = {
+const statsRow = {
   display: "grid",
-  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+  gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
   gap: 16,
 };
 
-const statCard: React.CSSProperties = {
+const statCard = {
   background: "#0c0d14",
   borderRadius: 14,
   padding: 14,
   border: "1px solid #1b1b25",
 };
 
-const statChip: React.CSSProperties = {
+const statChip = {
   marginTop: 8,
   fontSize: 11,
   color: "#3BFF8F",
@@ -315,40 +322,40 @@ const statChip: React.CSSProperties = {
   display: "inline-block",
 };
 
-const mainGrid: React.CSSProperties = {
+const mainGrid = {
   display: "grid",
   gridTemplateColumns: "minmax(0, 1.6fr) minmax(0, 1.1fr)",
   gap: 18,
   marginTop: 8,
 };
 
-const panel: React.CSSProperties = {
+const panel = {
   background: "#0c0d14",
   borderRadius: 16,
   padding: 18,
   border: "1px solid #1b1b25",
 };
 
-const panelTitle: React.CSSProperties = {
+const panelTitle = {
   fontSize: 16,
   fontWeight: 600,
 };
 
-const panelSub: React.CSSProperties = {
+const panelSub = {
   fontSize: 13,
   color: "#aaa",
   marginTop: 4,
   marginBottom: 16,
 };
 
-const inputGrid: React.CSSProperties = {
+const inputGrid = {
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
   gap: 10,
   marginBottom: 12,
 };
 
-const inputStyle: React.CSSProperties = {
+const inputStyle = {
   width: "100%",
   padding: 10,
   borderRadius: 10,
@@ -358,7 +365,7 @@ const inputStyle: React.CSSProperties = {
   fontSize: 13,
 };
 
-const analyzeButton: React.CSSProperties = {
+const analyzeButton = {
   width: "100%",
   padding: 12,
   marginTop: 4,
@@ -370,7 +377,7 @@ const analyzeButton: React.CSSProperties = {
   cursor: "pointer",
 };
 
-const resultBox: React.CSSProperties = {
+const resultBox = {
   marginTop: 16,
   padding: 14,
   borderRadius: 12,
@@ -378,7 +385,7 @@ const resultBox: React.CSSProperties = {
   border: "1px solid #253143",
 };
 
-const insightsList: React.CSSProperties = {
+const insightsList = {
   listStyle: "none",
   padding: 0,
   margin: "12px 0 0 0",
@@ -387,14 +394,14 @@ const insightsList: React.CSSProperties = {
   gap: 10,
 };
 
-const insightItem: React.CSSProperties = {
+const insightItem = {
   padding: 10,
   borderRadius: 10,
   background: "#10111c",
   border: "1px solid #1d1e2a",
 };
 
-const queueList: React.CSSProperties = {
+const queueList = {
   listStyle: "none",
   padding: 0,
   marginTop: 10,
@@ -403,7 +410,7 @@ const queueList: React.CSSProperties = {
   gap: 8,
 };
 
-const queueItem: React.CSSProperties = {
+const queueItem = {
   fontSize: 13,
   padding: 8,
   borderRadius: 8,
