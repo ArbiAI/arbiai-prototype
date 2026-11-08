@@ -1,6 +1,7 @@
 "use client";
 
 import React, { type CSSProperties } from "react";
+import Link from "next/link";
 
 export default function ArbiAIDashboard() {
   // later we can wire real logic here
@@ -18,6 +19,9 @@ export default function ArbiAIDashboard() {
 
         <nav style={navSection}>
           <NavItem label="Dashboard" active />
+          <Link href="/leads" style={{ textDecoration: "none" }}>
+            <NavItem label="Lead Feed" />
+          </Link>
           <NavItem label="Product Validator" />
           <NavItem label="Supplier Scanner" />
           <NavItem label="Replen Finder" />
